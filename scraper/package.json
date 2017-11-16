@@ -1,0 +1,24 @@
+{
+  "name": "scraper",
+  "version": "1.0.0",
+  "description": "Scraper for careercenter",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shushanab/careercenter.git"
+  },
+  "author": "Shushan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shushanab/careercenter/issues"
+  },
+  "homepage": "https://github.com/shushanab/careercenter#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.2",
+    "request": "^2.83.0"
+  }
+}
