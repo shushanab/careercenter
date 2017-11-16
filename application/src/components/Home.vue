@@ -28,48 +28,6 @@
       <div class="tile is-vertical is-12">
 
         <div class="tile">
-          <div class="tile is-parent is-vertical">
-            <article class="tile is-child notification is-primary">
-              <p class="title">ADV here...</p>
-              <p class="subtitle">This is a  details</p>
-            </article>
-            <article class="tile is-child notification is-warning">
-              <p class="title">...one else</p>
-              <p class="subtitle">More details</p>
-            </article>
-          </div>
-          <div class="tile is-parent">
-            <article class="tile is-child notification is-info">
-              <p class="title">Sign In or Sign Up</p>
-              <p class="subtitle"> to post a job</p>
-              <div class="field">
-                <p class="control has-icons-left has-icons-right">
-                  <input class="input" type="email" placeholder="Email">
-                  <span class="icon is-small is-left">
-                    <i class="fa fa-envelope"></i>
-                  </span>
-                  <span class="icon is-small is-right">
-                    <i class="fa fa-check"></i>
-                  </span>
-                </p>
-              </div>
-              <div class="field">
-                <p class="control has-icons-left">
-                  <input class="input" type="password" placeholder="Password">
-                  <span class="icon is-small is-left">
-                    <i class="fa fa-lock"></i>
-                  </span>
-                </p>
-              </div>
-              <div class="field">
-                <p class="control">
-                  <button class="button is-success">
-                    Login
-                  </button>
-                </p>
-              </div>
-            </article>
-          </div>
 
           <div class="tile is-parent is-vertical">
             <article class="tile is-child notification is-primary">
@@ -114,6 +72,51 @@
               </ul>
             </article>
           </div>
+
+          <div class="tile is-parent">
+            <article class="tile is-child notification is-info">
+              <p class="title">Sign In or Sign Up</p>
+              <p class="subtitle"> to post a job</p>
+              <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                  <input class="input" type="email" placeholder="Email">
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-envelope"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fa fa-check"></i>
+                  </span>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control has-icons-left">
+                  <input class="input" type="password" placeholder="Password">
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-lock"></i>
+                  </span>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control">
+                  <button class="button is-success">
+                    Login
+                  </button>
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="tile is-parent is-vertical">
+            <article class="tile is-child notification is-danger">
+              <p class="title">ADV here...</p>
+              <p class="subtitle">This is a  details</p>
+            </article>
+            <article class="tile is-child notification is-warning">
+              <p class="title">...one else</p>
+              <p class="subtitle">More details</p>
+            </article>
+          </div>
+
         </div>
       </div>
     </div>

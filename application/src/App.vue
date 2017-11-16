@@ -2,7 +2,11 @@
   <div id="app">
     <nav class="navbar is-primary is-fixed-top">
       <div class="navbar-brand">
-        <router-link to="/" class="navbar-item r-item">Career Center</router-link>
+        <router-link to="/" class="navbar-item r-item">
+          <span class="icon">
+            <i class="fa fa-briefcase"></i>
+          </span>Career Center
+        </router-link>
       </div>
 
       <div class="navbar-burger burger">
@@ -13,9 +17,26 @@
 
       <div class="navbar-menu">
         <div class="navbar-end">
-          <router-link to="/" class="navbar-item r-item">Home</router-link>
-          <router-link to="/list" class="navbar-item r-item">Jobs list</router-link>
-          <router-link to="/job" class="navbar-item r-item">Job</router-link>
+          <router-link to="/" class="navbar-item r-item">
+            <span class="icon">
+              <i class="fa fa-home"></i>
+            </span> Home
+          </router-link>
+          <router-link to="/list" class="navbar-item r-item">
+            <span class="icon">
+              <i class="fa fa-list"></i>
+            </span> Jobs list
+          </router-link>
+          <router-link to="/resources" class="navbar-item r-item">
+            <span class="icon">
+              <i class="fa fa-wrench"></i>
+            </span> Resources
+          </router-link>
+          <router-link to="/about" class="navbar-item r-item">
+            <span class="icon">
+              <i class="fa fa-users"></i>
+            </span> About Us
+          </router-link>
         </div>
       </div>
     </nav>
