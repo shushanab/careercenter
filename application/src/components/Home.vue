@@ -6,9 +6,8 @@
         <div class="container">
           <h1 class="title">{{ msg }}</h1>
           <h2 class="subtitle">
-            Welcome to CAREERCENTER.AM, a FREE job announcements service online...
+             It's time to raise up
           </h2>
-          <br>
 				  <div class="field is-grouped">
 					  <p class="control is-expanded">
 						  <input class="input" type="text" placeholder="Find your next job apportunity">
