@@ -3,27 +3,25 @@
     <router-view class="view list" name="list"></router-view>
     <section class="section" v-for="job in jobs">
       <div class="container">
-        <h1 class="title">{{ job.job }}</h1>
-        <h2 class="subtitle">
+        <h3 class="title">{{ job.job }}</h3>
+        <h4 class="subtitle">
           {{ job.company }}, {{ job.location }}, {{ job.audience }}
-        </h2>
+        </h4>
         <a><small>read more...</small></a>
       </div>
     <hr>
     </section>
-
-  </div><!-- end .container -->
-</div></div></div>
+  </div><!-- end .list -->
 </template>
 
 <script>
-import list from '/workspace/shushan/application/static/data.json';
+import lists from '/workspace/shushan/application/static/data.json';
 
 export default {
   data() {
     return {
       jobs: [
-        list[0], list[1], list[2], list[3]
+        lists[0], lists[1], lists[2], lists[3]
       ]
     };
   }
@@ -33,10 +31,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h3, h4 {
   font-weight: normal;
 }
 .list {
   padding-top: 5%;
+}
+.section {
+  padding-top: 0;
 }
 </style>

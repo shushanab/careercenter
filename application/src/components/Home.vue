@@ -25,7 +25,8 @@
       </div>
     </section>
     <div class="tile is-ancestor">
-      <div class="tile is-vertical is-9">
+      <div class="tile is-vertical is-12">
+
         <div class="tile">
           <div class="tile is-parent is-vertical">
             <article class="tile is-child notification is-primary">
@@ -39,7 +40,7 @@
           </div>
           <div class="tile is-parent">
             <article class="tile is-child notification is-info">
-              <p class="title">Sign In or Sign Up for free</p>
+              <p class="title">Sign In or Sign Up</p>
               <p class="subtitle"> to post a job</p>
               <div class="field">
                 <p class="control has-icons-left has-icons-right">
@@ -67,6 +68,50 @@
                   </button>
                 </p>
               </div>
+            </article>
+          </div>
+
+          <div class="tile is-parent is-vertical">
+            <article class="tile is-child notification is-primary">
+              <p class="title">Last added jobs</p>
+              <ul>
+                <li>
+                  <a> Lorem ipsum...</a>
+                  <span class="tag is-success"> New! </span>
+                </li>
+                <li>
+                  <a> Front-end developer</a>
+                  <span class="tag is-success"> New! </span>
+                </li>
+                <li>
+                  <a> Dolar ament </a>
+                  <span class="tag is-success"> New! </span>
+                </li>
+                <li>
+                  <a> Web designer</a>
+                  <span class="tag is-success"> New! </span>
+                </li>
+                <li>
+                  <a> Front-end developer</a>
+                  <span class="tag is-success"> New! </span>
+                </li>
+                <li>
+                  <a> Dolar ament </a>
+                  <span class="tag is-success"> New! </span>
+                </li>
+                <li>
+                  <a> Web designer</a>
+                  <span class="tag is-success"> New! </span>
+                </li>
+                <li>
+                  <a> Front-end developer</a>
+                  <span class="tag is-success"> New! </span>
+                </li>
+                <li> 
+                  <a> Web designer</a>
+                  <span class="tag is-success"> New! </span>
+                </li>
+              </ul>
             </article>
           </div>
         </div>
