@@ -1,52 +1,37 @@
-var express = require("express"),
+let express = require("express"),
     fs = require("fs"),
     app = express(),
-    phantom = require("phantom"),
-    IP = "localhost",
-    PORT = 8000;
+    curl = require('curlrequest'),
+    jsdom = require("jsdom"),
+    IP = process.env.HOST || "localhost",
+    PORT = process.env.PORT || 8000;
 
-// Exit Phantom  //
-function quit(reason, value) {
-    console.log("QUIT: " + reason);
-    phantom.exit(value);
-}
+const {
+    JSDOM
+  } = jsdom;
 
-// ROUTERS //
-app.get('/scrape', function(req, res) {
-    var phantom = require("phantom");
-    var _ph, _page;
-    phantom.create().then(function(ph) {
-        _ph = ph;
-        return _ph.createPage();
-    }).then(function(page) {
-        _page = page;
-        var url = "https://careercenter.am/index.php?/ccdspann.php?id=29976";
-        return _page.open(url);
-    }).then(function(status) {
-        var value = '';
-        if (status === 'success') {
-            value = _page.evaluate(function() {
-                return document;
-            });
-            console.log("SUCCESS", value);
+// SCRAPING ROUTERS //
+app.get('/scrape', (req, res) => {
+    let mainURL = 'https://careercenter.am';
+    var options = {
+        url: mainURL + "/index.php?/ccdspann.php?id=29976"
+    } // url, method, data, timeout,data, etc can be passed as options 
+    curl.request(options, (err, response) => {
+        var dom = new JSDOM(response);
+        var targetPart = dom.window.document.body.querySelectorAll("frame")[2].src;
+        var options = {
+            url: mainURL + targetPart
         }
-        return value;
-    }).then(function(value) {
-        res.json({
-            data: value
-        });
-        _page.close();
-        _ph.exit();
-    }).catch(function(e) {
-        res.json({
-            data: 'Sorry, something goes wrong:(',
-            error: e
+        curl.request(options, (err, response) => {
+            var dom = new JSDOM(response);
+            var paragraps = dom.window.document.body.querySelectorAll("p");
+            for (var i = 0; i < paragraps.length; i++) {
+                console.log(paragraps[i].outerHTML);
+            }
         });
     });
 });
 
-app.listen(PORT, IP, function() {
-    console.log("Scrapping from URL = http://" + IP + ":" + PORT + "/scrape");
+app.listen(PORT, IP, () => {
+    console.log("Scraping with URL = http://" + IP + ":" + PORT + "/scrape");
 });
-
-exports = module.exports = app;

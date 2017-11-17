@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/shushanab/careercenter#readme",
   "dependencies": {
+    "curlrequest": "^1.0.1",
     "express": "^4.15.3",
-    "phantom": "^4.0.5"
+    "jsdom": "^11.3.0"
   }
 }
