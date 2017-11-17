@@ -20,12 +20,17 @@ export default new Router({
       components: {
           default: List,
           Filter
-      }
-    },
-    {
-      path: '/job',
-      name: 'Job',
-      component: Job
+      },
+      children: [
+        {
+          path: '/job:id',
+          name: 'Job',
+          component: Job,
+          params: {
+            jobID: Job.id
+          }
+        }
+      ]
     }
   ]
 })

@@ -7,26 +7,26 @@
         <h4 class="subtitle">
           {{ job.company }}, {{ job.location }}, {{ job.audience }}
         </h4>
-        <a><small>read more...</small></a>
+        <router-link :to="{ path: 'job/'+job.id, params: { jobID: job.id }}"><small>read more...</small></router-link>
       </div>
     <hr>
     </section>
+    <router-view class="view filter" name="filter"></router-view>
   </div><!-- end .list -->
 </template>
 
 <script>
-import lists from '/workspace/shushan/application/static/data.json';
+
+import list from '/workspace/shushan/application/static/data.json';
+import Filter from '@/components/Filter'
 
 export default {
   data() {
     return {
-      jobs: [
-        lists[0], lists[1], lists[2], lists[3]
-      ]
+      jobs: list
     };
   }
 }
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
