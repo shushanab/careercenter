@@ -34,10 +34,21 @@ export default {
 h3, h4 {
   font-weight: normal;
 }
+
+h3 {
+  font-size: 25px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
 .list {
   padding-top: 5%;
 }
+
 .section {
   padding-top: 0;
+  height: 135px;
 }
 </style>
