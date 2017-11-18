@@ -16,8 +16,10 @@ function beautify(html, id, company) {
     single["id"] = Number(id);
     single["company"] = company;
     for (const p of html) {
-        meta = p.split(":</b>")[0]
-        data = p.split(":</b>")[1];
+        var meta = p.split(":</b>")[0],
+            data = p.split(":</b>")[1];
+        if (data == undefined || meta == "") meta = "N/A", data = "N/A";
+        else {
         meta = meta.replace(/<\/?[^>]+(>|$)/g, "")
                   .replace("&nbsp;&nbsp;", "")
                   .replace("&amp;", "&")
@@ -26,14 +28,12 @@ function beautify(html, id, company) {
                   .replace("----------------------------------", "")
                   .trim()
                   .toLowerCase();
-        if (data == undefined) data = "N/A";
-        else {
            data = data.replace(/(<\/p>)|(<br>)|(\n)|(\t)/g, "")
                   .replace("&nbsp;&nbsp;", "")
                   .replace(/\\"/g , '"')
                   .trim();
         }
-        single[meta] = data;
+        if (meta != "N/A" && data != "N/A") single[meta] = data;
     }
     return single; 
 }
