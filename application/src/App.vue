@@ -46,9 +46,17 @@
 </template>
 
 <script>
+
+import list from '/workspace/shushan/application/static/data.json';
 export default {
-  name: 'app'
+  name: 'app',
+  data() {
+    return {
+      jobs: list
+    };
+  }
 }
+
 </script>
 
 <style>

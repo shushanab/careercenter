@@ -107,8 +107,7 @@
 
           <div class="tile is-parent is-vertical">
             <article class="tile is-child notification is-danger">
-              <p class="title">ADV here...</p>
-              <p class="subtitle">This is a  details</p>
+              <p class="title">Embeded Facebook or Twitter timeline here...</p>
             </article>
             <article class="tile is-child notification is-warning">
               <p class="title">...one else</p>

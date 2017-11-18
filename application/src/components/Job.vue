@@ -10,7 +10,8 @@ export default {
   name: 'Job',
   data () {
     return {
-      msg: 'Welcome to Job Detailed Page'
+      msg: 'Welcome to Job Detailed Page',
+      jobID: window.location.href.split('job/')[1]
     }
   }
 }

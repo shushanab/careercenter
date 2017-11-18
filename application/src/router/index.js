@@ -21,16 +21,19 @@ export default new Router({
           default: List,
           Filter
       },
-      children: [
-        {
-          path: '/job:id',
-          name: 'Job',
-          component: Job,
-          params: {
-            jobID: Job.id
+      props: List.data().jobs,
+      methods: {
+          filter () {
           }
-        }
-      ]
+      }
+    },
+    {
+      path: '/job:id',
+      name: 'Job',
+      component: Job,
+      params: {
+        jobID: Job.data().jobID
+      }
     }
   ]
 })

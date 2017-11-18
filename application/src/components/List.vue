@@ -3,7 +3,7 @@
     <router-view class="view list" name="list"></router-view>
     <section class="section" v-for="job in jobs">
       <div class="container">
-        <h3 class="title">{{ job.job }}</h3>
+        <h3 class="title">{{ job.title }}</h3>
         <h4 class="subtitle">
           {{ job.company }}, {{ job.location }}, {{ job.audience }}
         </h4>
@@ -24,8 +24,8 @@ export default {
   data() {
     return {
       jobs: list
-    };
-  }
+    }
+  },
 }
 </script>
 
