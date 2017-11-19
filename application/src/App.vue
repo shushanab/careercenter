@@ -9,13 +9,13 @@
         </router-link>
       </div>
 
-      <div class="navbar-burger burger">
+      <div class="navbar-burger burger" v-on:click="toggleNav" v-bind:class="{ 'is-active': isActive }">
         <span></span>
         <span></span>
         <span></span>
       </div>
 
-      <div class="navbar-menu">
+      <div class="navbar-menu" v-on:click="toggleNav" v-bind:class="{ 'is-active': isActive }">
         <div class="navbar-end">
           <router-link to="/" class="navbar-item r-item">
             <span class="icon">
@@ -50,10 +50,16 @@
 import list from '/workspace/shushan/application/static/data.json';
 export default {
   name: 'app',
-  data() {
+  data: function (){
     return {
-      jobs: list
-    };
+      jobs: list,
+      isActive: false
+    }
+  },
+  methods: {
+    toggleNav: function() {
+      this.isActive =  !this.isActive
+    }
   }
 }
 
