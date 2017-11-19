@@ -1,5 +1,51 @@
 <template>
   <div class="list">
+
+    <div class="tile is-ancestor">
+      <div class="tile is-vertical is-12">
+        <div class="tile">
+          <div class="tile is-parent">
+            <article class="tile is-child notification is-filter">
+              <div class="content">
+                <div class="content">
+
+                  <div class="field is-horizontal">
+                    <div class="field-body">
+                      <div class="field">
+                        <p class="control is-expanded has-icons-left">
+                          <input class="input is-success" type="search" placeholder="Audience/Profession">
+                          <span class="icon is-small is-left">
+                            <i class="fa fa-briefcase"></i>
+                          </span>
+                        </p>
+                      </div>
+                      <div class="field">
+                        <p class="control is-expanded has-icons-left">
+                          <input class="input is-success" type="search" placeholder="Company Name">
+                          <span class="icon is-small is-left">
+                            <i class="fa fa-building-o"></i>
+                          </span>
+                        </p>
+                      </div>
+                      <div class="field">
+                        <p class="control is-expanded has-icons-left">
+                          <input class="input is-success" type="search" placeholder="Location">
+                          <span class="icon is-small is-left">
+                            <i class="fa fa-map-marker"></i>
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <router-view class="view list" name="list"></router-view>
     <section class="section" v-for="job in jobs">
       <div class="container">
@@ -11,14 +57,12 @@
       </div>
     <hr>
     </section>
-    <router-view class="view filter" name="filter"></router-view>
   </div><!-- end .list -->
 </template>
 
 <script>
 
 import list from '/workspace/shushan/application/static/data.json';
-import Filter from '@/components/Filter'
 
 export default {
   data() {
@@ -50,5 +94,14 @@ h4 {
 .section {
   padding-top: 0;
   height: 135px;
+}
+
+.is-ancestor {
+  margin: auto 0;
+}
+
+.is-filter {
+  background-color: #9dfbd7;
+  color: white;
 }
 </style>

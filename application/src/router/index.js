@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import List from '@/components/List'
 import Job from '@/components/Job'
-import Filter from '@/components/Filter'
 
 Vue.use(Router)
 
@@ -18,8 +17,7 @@ export default new Router({
       path: '/list',
       name: 'List',
       components: {
-          default: List,
-          Filter
+          default: List
       },
       props: List.data().jobs,
       methods: {

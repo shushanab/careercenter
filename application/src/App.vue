@@ -42,6 +42,33 @@
     </nav>
 
     <router-view></router-view>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Career Center </strong>
+            <small> created by
+              <a target="_blank" href="https://tumo.org/">&copy; TUMO | CENTER FOR
+                <span style="color:#b30047"> CREATIVE</span>TECHNOLOGIES
+              </a>.
+            </small>
+          </p>
+
+          <p> The source code is licensed
+            <small>
+              <a target="_blank" href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+            </small>
+            <div class="column has-text-center">
+              <a class="icon" href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a>
+              <a class="icon" href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+              <a class="icon" href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+              <a class="icon" href="https://plus.google.com/"><i class="fa fa-google-plus"></i></a>
+            </div>
+          </p>
+        </div> <!-- end .content -->
+      </div> <!-- end .container -->
+    </footer>
   </div>
 </template>
 
@@ -58,7 +85,8 @@ export default {
   },
   methods: {
     toggleNav: function() {
-      this.isActive =  !this.isActive
+      this.isActive = !this.isActive;
+      return this.isActive;
     }
   }
 }
