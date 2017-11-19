@@ -8,16 +8,19 @@
           <h2 class="subtitle">
              It's time to raise up
           </h2>
-				  <div class="field is-grouped">
-					  <p class="control is-expanded">
-						  <input class="input" type="text" placeholder="Find your next job apportunity">
-					  </p>
-					  <p class="control">
-              <!-- TODO handle a click, and redirect to list page -->
-						  <a class="button is-primary">
-							  Search
-						  </a>
-					  </p>
+          <div class="field is-grouped">
+            <p class="control is-expanded">
+              <input class="input" type="text" name="search" placeholder="Find your next job apportunity">
+            </p>
+            <p class="control">
+              <!-- TODO handle a click, and redirect to list page >
+        <router-link :to="{ path: 'job/'+job.id, params: { jobID: job.id }}">
+          <a>{{ job.title }}</a>
+        </router-link-->
+              <a class="button is-primary">
+                Search
+              </a>
+            </p>
           </div>
 
         </div>
@@ -31,43 +34,13 @@
           <div class="tile is-parent is-vertical">
             <article class="tile is-child notification is-primary">
               <p class="title">Last added jobs</p>
-              <ul>
-                <li>
-                  <a> Lorem ipsum...</a>
-                  <span class="tag is-success"> New! </span>
-                </li>
-                <li>
-                  <a> Front-end developer</a>
-                  <span class="tag is-success"> New! </span>
-                </li>
-                <li>
-                  <a> Dolar ament </a>
-                  <span class="tag is-success"> New! </span>
-                </li>
-                <li>
-                  <a> Web designer</a>
-                  <span class="tag is-success"> New! </span>
-                </li>
-                <li>
-                  <a> Front-end developer</a>
-                  <span class="tag is-success"> New! </span>
-                </li>
-                <li>
-                  <a> Dolar ament </a>
-                  <span class="tag is-success"> New! </span>
-                </li>
-                <li>
-                  <a> Web designer</a>
-                  <span class="tag is-success"> New! </span>
-                </li>
-                <li>
-                  <a> Front-end developer</a>
-                  <span class="tag is-success"> New! </span>
-                </li>
-                <li> 
-                  <a> Web designer</a>
-                  <span class="tag is-success"> New! </span>
-                </li>
+              <ul v-for="job in topTen">
+                  <li>
+                    <router-link :to="{ path: 'job/'+job.id, params: { jobID: job.id }}">
+                      <a>{{ job.title }}</a>
+                      <span class="tag is-success"> New! </span>
+                    </router-link>
+                  </li>
               </ul>
             </article>
           </div>
@@ -122,11 +95,14 @@
 </template>
 
 <script>
+import list from '/workspace/shushan/application/static/data.json';
+
 export default {
   name: 'Home',
   data () {
     return {
-      msg: 'Welcome to Career Center'
+      msg: 'Welcome to Career Center',
+      topTen: list.slice(0, 7)
     }
   }
 }

@@ -13,25 +13,9 @@
                     <div class="field-body">
                       <div class="field">
                         <p class="control is-expanded has-icons-left">
-                          <input class="input is-success" type="search" placeholder="Audience/Profession">
+                          <input class="input is-success" v-model="search" type="search" placeholder="Filter Jobs by Audience/Profession or Company Name">
                           <span class="icon is-small is-left">
                             <i class="fa fa-briefcase"></i>
-                          </span>
-                        </p>
-                      </div>
-                      <div class="field">
-                        <p class="control is-expanded has-icons-left">
-                          <input class="input is-success" type="search" placeholder="Company Name">
-                          <span class="icon is-small is-left">
-                            <i class="fa fa-building-o"></i>
-                          </span>
-                        </p>
-                      </div>
-                      <div class="field">
-                        <p class="control is-expanded has-icons-left">
-                          <input class="input is-success" type="search" placeholder="Location">
-                          <span class="icon is-small is-left">
-                            <i class="fa fa-map-marker"></i>
                           </span>
                         </p>
                       </div>
@@ -47,13 +31,15 @@
     </div>
 
     <router-view class="view list" name="list"></router-view>
-    <section class="section" v-for="job in jobs">
+    <section class="section" v-for="job in filterJobs">
       <div class="container">
         <h3 class="title">{{ job.title }}</h3>
         <h4 class="subtitle">
-          {{ job.company }}, {{ job.location }}, {{ job.audience }}
+          {{ job.company }} / {{ job.audience }} {{ job.location }} / {{ job.duration }}
         </h4>
-        <router-link :to="{ path: 'job/'+job.id, params: { jobID: job.id }}"><small>read more...</small></router-link>
+        <router-link :to="{ path: 'job/'+job.id, params: { jobID: job.id }}">
+          <small>read more...</small>
+        </router-link>
       </div>
     <hr>
     </section>
@@ -67,9 +53,19 @@ import list from '/workspace/shushan/application/static/data.json';
 export default {
   data() {
     return {
-      jobs: list
+      jobs: list,
+      search: ""
     }
   },
+  computed: {
+    filterJobs: function() {
+      return this.jobs.filter((job) => {
+        return job.title.toLowerCase().match(this.search)
+            || job.company.toLowerCase().match(this.search) 
+ 
+      });
+    }
+  }
 }
 </script>
 
