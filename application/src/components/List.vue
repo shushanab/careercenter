@@ -53,7 +53,7 @@ import list from '/workspace/shushan/application/static/data.json';
 export default {
   data() {
     return {
-      jobs: list,
+      jobs: [].concat(list).reverse(),
       search: ""
     }
   },

@@ -1,17 +1,22 @@
 <template>
   <div class="job">
-    <h1>{{ msg }}</h1>
     <router-view class="view job"></router-view>
+    <section class="section" v-for="job in list" :key="job.id" v-if="job.id == jobID">
+      <div>{{ job }} </div>
+    </section>
   </div>
 </template>
 
 <script>
+import list from '/workspace/shushan/application/static/data.json';
+
 export default {
   name: 'Job',
   data () {
     return {
       msg: 'Welcome to Job Detailed Page',
-      jobID: window.location.href.split('job/')[1]
+      jobID: window.location.href.split('job/')[1],
+      list: list
     }
   }
 }

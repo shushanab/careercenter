@@ -102,7 +102,7 @@ export default {
   data () {
     return {
       msg: 'Welcome to Career Center',
-      topTen: list.slice(0, 7)
+      topTen: list.slice(-7)
     }
   }
 }
@@ -110,6 +110,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.tile.is-ancestor:last-child {
+    margin-bottom: 0;
+}
+
 .is-ancestor {
     margin: 0 auto;
 }

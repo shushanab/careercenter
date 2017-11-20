@@ -4,14 +4,26 @@ let express = require("express"),
     curl = require('curlrequest'),
     jsdom = require("jsdom"),
     jsonDocumentPath = "../application/static/data.json",
+    mainURL = "https://careercenter.am",
+    targetURL = "/index.php?/ccdspann.php?id=",
     IP = process.env.HOST || "localhost",
     PORT = process.env.PORT || 8000;
 
 const {
     JSDOM
-  } = jsdom;
+  } = jsdom,
+  START = 29975,
+  COUNT = 25;
+
+function range(start, count) {
+    return Array.apply(0, Array(count))
+        .map(function (element, index) {
+            return index + start;
+        });
+}
 
 function beautify(html, id, company) {
+    // console.log("valid id: ", id);
     var single = {};
     single["id"] = Number(id);
     single["company"] = company;
@@ -35,16 +47,12 @@ function beautify(html, id, company) {
         }
         if (meta != "N/A" && data != "N/A") single[meta] = data;
     }
-    return single; 
+    return single;
 }
 
 // SCRAPING ROUTERS //
 app.get("/scrape", (req, res) => {
-    let mainURL = "https://careercenter.am";
-    let targetURL = "/index.php?/ccdspann.php?id=";
-    // This is a hardcoded real job_ides array from careercenter.am
-    var range = [30008, 30003, 29991, 29968, 29979, 29996, 29990, 29992, 29950, 29977, 29940, 29934, 29928, 29882, 29910, 29834, 29842, 30001, 29961, 29922, 29911, 29752, 29754, 29755].sort();
-    for (var id of range) {
+    for (var id  of range(START, COUNT)) {
         var options = {
             url: mainURL + targetURL + id
         }; // url, method, data, timeout etc can be passed as options 
@@ -60,19 +68,22 @@ app.get("/scrape", (req, res) => {
                 curl.request(options, (err, response) => {
                     if(err) res.send("Sorry. Something goes wrong...")
                     else { 
-                        dom = new JSDOM(response);
-                        var company = dom.window.document.body.querySelectorAll("font b")[0].innerHTML;
-                        var paragraps = dom.window.document.body.querySelectorAll("p");
-
-                        var html = [];
-                        for (const p of paragraps) html.push(p.outerHTML);
-                        html = beautify(html, id, company)
-                        json.push(html);
-                        // jsonDocument automaticly will be saved under static dir of application
-                        fs.writeFile(jsonDocumentPath, JSON.stringify(json), (err) => {
-                            if(err) return console.log(err);
-                        }); 
+                       dom = new JSDOM(response);
+                       if (dom.window.document.body.querySelector("h1") != undefined) id++
+                        else {
+                            var company = dom.window.document.body.querySelectorAll("font b")[0].innerHTML;
+                            var paragraps = dom.window.document.body.querySelectorAll("p");
+                            var html = [];
+                            for (const p of paragraps) html.push(p.outerHTML);
+                            html = beautify(html, id, company)
+                            json.push(html);
+                            // jsonDocument automaticly will be saved under static dir of application
+                            fs.writeFile(jsonDocumentPath, JSON.stringify(json), (err) => {
+                                if(err) return console.log(err);
+                            });
+                        }
                     }
+                    id++;
                 });
             }
         });

@@ -20,15 +20,13 @@ export default new Router({
           default: List
       },
       props: List.data().jobs,
-      methods: {
-          filter () {
-          }
-      }
     },
     {
-      path: '/job:id',
+      path: '/job/:id',
       name: 'Job',
-      component: Job,
+      components: {
+          default: Job
+      },
       params: {
         jobID: Job.data().jobID
       }
