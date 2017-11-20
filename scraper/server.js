@@ -37,6 +37,7 @@ function beautify(html, id, company) {
                   .replace("&amp;", "&")
                   .replace(/\\"/g , '"')
                   .replace(/(\n)|(\t)/g, '')
+                  .replace(/(\s)|(\/\s)/, '_')
                   .replace("----------------------------------", "")
                   .trim()
                   .toLowerCase();
