@@ -3,7 +3,7 @@ let express = require("express"),
     app = express(),
     curl = require('curlrequest'),
     jsdom = require("jsdom"),
-    jsonDocumentPath = "../application/static/data.json",
+    jsonDocumentPath = "../application/src/assets/static/data.json",
     mainURL = "https://careercenter.am",
     targetURL = "/index.php?/ccdspann.php?id=",
     IP = process.env.HOST || "localhost",
@@ -12,8 +12,8 @@ let express = require("express"),
 const {
     JSDOM
   } = jsdom,
-  START = 29975,
-  COUNT = 25;
+  START = 29777,
+  COUNT = 150;
 
 function range(start, count) {
     return Array.apply(0, Array(count))

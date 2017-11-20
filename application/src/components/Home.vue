@@ -95,14 +95,14 @@
 </template>
 
 <script>
-import list from '/workspace/shushan/application/static/data.json';
+import list from '@/assets/static/data.json';
 
 export default {
   name: 'Home',
   data () {
     return {
       msg: 'Welcome to Career Center',
-      topTen: list.slice(-7)
+      topTen: list.slice(-7).reverse()
     }
   }
 }

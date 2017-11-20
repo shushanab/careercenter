@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import list from '/workspace/shushan/application/static/data.json';
+import list from '@/assets/static/data.json';
 
 export default {
   name: 'Job',
@@ -48,12 +48,21 @@ export default {
 <style scoped>
 .hero {
   width: 95%;
+  height: 250px;
   margin: 0 auto;
+}
+
+.hero-body {
+  padding: 0;
 }
 
 .container {
   width: 90%;
   margin: 15px auto;
+}
+
+.container p {
+  padding: 5px;
 }
 
 h1, h2 {
