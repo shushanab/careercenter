@@ -2,17 +2,29 @@
   <div class="job">
     <router-view class="view job"></router-view>
     <section class="section" v-for="job in list" :key="job.id" v-if="job.id == jobID">
-      <div>title: {{ job.title }} </div>
-      <p>company: {{ job.company }} </p>
-      <p>location: {{ job.location }} </p>
-      <p>term: {{ job.term }} </p>
-      <p>duration: {{ job.duration }} </p>
-      <p>job_responsibilities: {{ job.job_responsibilities }} </p>
-      <p>required_qualifications: {{ job.required_qualifications }} </p>
-      <p>application_procedures: {{ job.application_procedures }} </p>
-      <p>opening_date: {{ job.opening_date }} </p>
-      <p>application_deadline: {{ job.application_deadline }} </p>
-      <p>about_company: {{ job.about_company }} </p>
+      <div class="container">
+        <section class="hero is-warning">
+          <div class="hero-body">
+          <div class="container">
+            <h1 class="title"> {{ job.title }} </h1>
+            <h2 class="subtitle"><strong> {{ job.company }} </strong> /  {{ job.location }} / {{ job.duration }} </h2>
+          </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <p><strong>Responsibilities:</strong> {{ job.job_responsibilities }} </p>
+        <p><strong>Required Qualifications</strong>: {{ job.required_qualifications }} </p>
+        <p><strong>Opening Date:</strong> {{ job.opening_date }} </p>
+        <p><strong>Application Deadline:</strong> {{ job.application_deadline }} </p>
+        <p><strong>Application Procedures:</strong> {{ job.application_procedures }} </p>
+        <p><strong>About_company:</strong> {{ job.about_company }} </p>
+        <p>Term {{ job.term }} </p>
+      </div>
+    </section>
+  </div>
+
+<br>
     </section>
   </div>
 </template>
@@ -34,6 +46,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.hero {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.container {
+  width: 90%;
+  margin: 15px auto;
+}
+
 h1, h2 {
   font-weight: normal;
   padding-top: 5%;
