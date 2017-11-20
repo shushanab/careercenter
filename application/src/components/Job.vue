@@ -19,7 +19,6 @@
         <p><strong>Application Deadline:</strong> {{ job.application_deadline }} </p>
         <p><strong>Application Procedures:</strong> {{ job.application_procedures }} </p>
         <p><strong>About_company:</strong> {{ job.about_company }} </p>
-        <p>Term {{ job.term }} </p>
       </div>
     </section>
   </div>
@@ -63,6 +62,10 @@ export default {
 
 .container p {
   padding: 5px;
+}
+
+.is-warning {
+  background-color: #fade86;
 }
 
 h1, h2 {

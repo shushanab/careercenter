@@ -74,7 +74,7 @@
 
 <script>
 
-import list from '/workspace/shushan/application/static/data.json';
+import list from '@/assets/static/data.json';
 export default {
   name: 'app',
   data: function (){

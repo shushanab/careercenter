@@ -12,8 +12,8 @@ let express = require("express"),
 const {
     JSDOM
   } = jsdom,
-  START = 29777,
-  COUNT = 150;
+  START = 29970,
+  COUNT = 45;
 
 function range(start, count) {
     return Array.apply(0, Array(count))
@@ -59,7 +59,7 @@ app.get("/scrape", (req, res) => {
         }; // url, method, data, timeout etc can be passed as options 
         var json = [];
         curl.request(options, (err, response) => {
-            if(err) res.send("Sorry. Something goes wrong...")
+            if(err) console.log("Sorry. Something goes wrong...")
             else {
                 var dom = new JSDOM(response);
                 var targetPart = dom.window.document.body.querySelectorAll("frame")[2].src;
@@ -67,7 +67,7 @@ app.get("/scrape", (req, res) => {
                     url: mainURL + targetPart
                 }
                 curl.request(options, (err, response) => {
-                    if(err) res.send("Sorry. Something goes wrong...")
+                    if(err) console.log("Sorry. Something goes wrong...")
                     else { 
                        dom = new JSDOM(response);
                        if (dom.window.document.body.querySelector("h1") != undefined) id++
