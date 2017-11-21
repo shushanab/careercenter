@@ -89,7 +89,7 @@ app.get("/scrape", (req, res) => {
             }
         });
     }
-    res.send("Please wait...")
+    res.send("Please wait...<p>Generate json document will be stored at the following path: " + jsonDocumentPath + "</p>");
 });
 
 app.get('*', (req, res) => {
