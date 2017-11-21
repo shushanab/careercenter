@@ -83,7 +83,7 @@
               <p class="title">Embeded Facebook or Twitter timeline here...</p>
             </article>
             <article class="tile is-child notification is-warning">
-              <p class="title">...one else</p>
+              <p class="title">ADV here</p>
               <p class="subtitle">More details</p>
             </article>
           </div>
