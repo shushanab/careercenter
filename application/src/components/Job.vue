@@ -18,7 +18,7 @@
         <p><strong>Opening Date:</strong> {{ job.opening_date }} </p>
         <p><strong>Application Deadline:</strong> {{ job.application_deadline }} </p>
         <p><strong>Application Procedures:</strong> {{ job.application_procedures }} </p>
-        <p><strong>About_company:</strong> {{ job.about_company }} </p>
+        <p><strong>About Company:</strong> {{ job.about_company }} </p>
       </div>
     </section>
   </div>
@@ -35,7 +35,6 @@ export default {
   name: 'Job',
   data () {
     return {
-      msg: 'Welcome to Job Detailed Page',
       jobID: window.location.href.split('job/')[1],
       list: list
     }

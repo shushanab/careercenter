@@ -77,6 +77,12 @@
 import list from '@/assets/static/data.json';
 export default {
   name: 'app',
+  props: {
+    l: {
+      type: Array,
+      default: this.jobs
+    }
+  },
   data: function (){
     return {
       jobs: list,

@@ -14,7 +14,7 @@
             </p>
             <p class="control">
               <!-- TODO handle a click, and redirect to list page >
-        <router-link :to="{ path: 'job/'+job.id, params: { jobID: job.id }}">
+              <router-link :to="{ path: 'job/'+job.id, params: { jobID: job.id }}">
           <a>{{ job.title }}</a>
         </router-link-->
               <a class="button is-primary">

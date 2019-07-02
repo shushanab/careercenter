@@ -1,38 +1,31 @@
-let express = require("express"),
-    fs = require("fs"),
-    app = express(),
-    curl = require('curlrequest'),
-    jsdom = require("jsdom"),
-    jsonDocumentPath = "../application/src/assets/static/data.json",
-    mainURL = "https://careercenter.am",
-    targetURL = "/index.php?/ccdspann.php?id=",
-    IP = process.env.HOST || "localhost",
-    PORT = process.env.PORT || 8000;
+const express          = require("express"),
+      fs               = require("fs"),
+      app              = express(),
+      curl             = require('curlrequest'),
+      jsdom            = require("jsdom"),
+      jsonDocumentPath = "../application/src/assets/static/data.json",
+      mainURL          = "https://careercenter.am",
+      targetURL        = "/index.php?/ccdspann.php?id=",
+      IP               = process.env.HOST || "localhost",
+      PORT             = process.env.PORT || 8000,
+      { JSDOM }        = jsdom,
+      START            = 29970,
+      COUNT            = 45;
 
-const {
-    JSDOM
-  } = jsdom,
-  START = 29970,
-  COUNT = 45;
-
-function range(start, count) {
-    return Array.apply(0, Array(count))
-        .map(function (element, index) {
-            return index + start;
-        });
+const range = (start, count) => {
+  return Array.apply(0, Array(count)).map((el, index) => (index + start));
 }
 
-function beautify(html, id, company) {
-    // console.log("valid id: ", id);
-    var single = {};
-    single["id"] = Number(id);
-    single["company"] = company;
+const beautify = (html, id, company) => {
+    var single = { 
+      "id" : Number(id), 
+      "company": company 
+    } 
     for (const p of html) {
-        var meta = p.split(":</b>")[0],
-            data = p.split(":</b>")[1];
+        var [meta, data] = p.split(":</b>");
         if (data == undefined || meta == "") meta = "N/A", data = "N/A";
         else {
-        meta = meta.replace(/<\/?[^>]+(>|$)/g, "")
+            meta = meta.replace(/<\/?[^>]+(>|$)/g, "")
                   .replace("&nbsp;&nbsp;", "")
                   .replace("&amp;", "&")
                   .replace(/\\"/g , '"')
@@ -89,7 +82,7 @@ app.get("/scrape", (req, res) => {
             }
         });
     }
-    res.send("Please wait...<p>Generate json document will be stored at the following path: " + jsonDocumentPath + "</p>");
+    res.send(`Please wait...<p>Generated json document will be stored at the following path: ${jsonDocumentPath}</p>`);
 });
 
 app.get('*', (req, res) => {
@@ -97,5 +90,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, IP, () => {
-    console.log("Server started at URL = http://" + IP + ":" + PORT + "/scrape");
+    console.log(`Server started at URL http://${IP}:${PORT}/scrape`);
 });

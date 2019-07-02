@@ -58,7 +58,7 @@ export default {
     }
   },
   computed: {
-    filterJobs: function() {
+    filterJobs() {
       return this.jobs.filter((job) => {
         return job.title.toLowerCase().match(this.search)
             || job.company.toLowerCase().match(this.search) 
